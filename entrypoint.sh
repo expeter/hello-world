@@ -3,4 +3,4 @@
 echo "Hello $1"
 time=$(date)
 echo "::set-output name=time::$time"
-echo "can I see the secret: $2 ?"
+echo "may I see your secret: $2 "
