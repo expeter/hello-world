@@ -8,7 +8,9 @@ jobs:
     - name: check out repository
       uses: actions/checkout@v2
     - name: use my own docker greet secret action
-      uses: ./action.yaml
+      #which will then hopefully default to ./action.yaml? :-)
+      #@todo add a real folder for our actions
+      uses: ./
       with:
         who-to-greet: 'Pfefferle and Rinma'
         super_secret: ${{ secrets.TOP_SECRET1 }}
