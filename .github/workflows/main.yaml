@@ -5,11 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-docker-action@v1
+    - name: check out repository
+      uses: actions/checkout@v2
+    - name: use my own docker greet secret action
+      #which will then hopefully default to ./action.yaml? :-)
+      #@todo add a real folder for our actions
+      uses: ./
       with:
         who-to-greet: 'Pfefferle and Rinma'
+        super_secret: ${{ secrets.TOP_SECRET1 }}
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.time }}"
