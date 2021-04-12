@@ -5,6 +5,10 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
+  super_secret:
+    description: 'something no one should know ;-)'
+    required: false
+    default: 'not set'
 outputs:
   time: # id of output
     description: 'The time we greeted you'
@@ -13,3 +17,4 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.who-to-greet }}
+    - ${{ inputs.super_secret }}
